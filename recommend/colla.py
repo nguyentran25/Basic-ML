@@ -141,10 +141,8 @@ rate_test = ratings_test.as_matrix()
 # r_cols = ['books_id', 'users_id', 'rating']
 # ratings_base = pd.read_csv('./Data/ratings.csv', sep=',', names=r_cols, encoding='latin-1')
 # ratings_base = ratings_base.as_matrix()
-# rating_base = ratings_base[:,[1,0,2]];
-# rate1, rate2 = train_test_split(ratings_base, test_size=300000)
-# rate_train, rate_test = train_test_split(rate2, test_size = 60000)
-
+# ratings_base = ratings_base[:,[1,0,2]]; #swap books_id and users_id
+# rate_train, rate_test = train_test_split(ratings_base, test_size = 0.2, random_state = None) #split ratings base, rate_train/rate_test = 80/20
 
 # indices start from 0
 rate_train[:, :2] -= 1
