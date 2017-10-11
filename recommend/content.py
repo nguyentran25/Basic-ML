@@ -75,3 +75,17 @@ Yhat[n, ids]
 print 'Rated movies ids:', ids 
 print 'True ratings:', scores
 print 'Predicted ratings:', Yhat[ids, n]
+
+def evaluate(Yhat, rates, W, b):
+    se = 0
+    cnt = 0
+    for n in xrange(n_users):
+        ids, scores_truth = get_items_rated_by_user(rates, n)
+        scores_pred = Yhat[ids, n]
+        e = scores_truth - scores_pred 
+        se += (e*e).sum(axis = 0)
+        cnt += e.size 
+    return sqrt(se/cnt)
+
+print 'RMSE for training:', evaluate(Yhat, rate_train, W, b)
+print 'RMSE for test    :', evaluate(Yhat, rate_test, W, b)
