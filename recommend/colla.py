@@ -137,7 +137,7 @@ ratings_test = pd.read_csv('./Data/ub.test', sep='\t', names=r_cols, encoding='l
 rate_train = ratings_base.as_matrix()
 rate_test = ratings_test.as_matrix()
 
-#Data Books
+# # Data Books
 # r_cols = ['books_id', 'users_id', 'rating']
 # ratings_base = pd.read_csv('./Data/ratings.csv', sep=',', names=r_cols, encoding='latin-1')
 # ratings_base = ratings_base.as_matrix()

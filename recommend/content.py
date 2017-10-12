@@ -1,7 +1,8 @@
 import pandas as pd 
+from math import sqrt
 #Reading user file:
 u_cols =  ['user_id', 'age', 'sex', 'occupation', 'zip_code']
-users = pd.read_csv('/home/nguyentran25/PycharmProjects/recommend/Data/u.user', sep='|', names=u_cols,
+users = pd.read_csv('./Data/u.user', sep='|', names=u_cols,
 	encoding='latin-1', engine='python')
 
 n_users = users.shape[0]
@@ -9,8 +10,8 @@ print 'Number of users:', n_users
 
 r_cols = ['user_id', 'movie_id', 'rating', 'unix_timestamp']
 
-ratings_base = pd.read_csv('/home/nguyentran25/PycharmProjects/recommend/Data/ua.base', sep='\t', names=r_cols, encoding='latin-1')
-ratings_test = pd.read_csv('/home/nguyentran25/PycharmProjects/recommend/Data/ua.test', sep='\t', names=r_cols, encoding='latin-1')
+ratings_base = pd.read_csv('./Data/ua.base', sep='\t', names=r_cols, encoding='latin-1')
+ratings_test = pd.read_csv('./Data/ua.test', sep='\t', names=r_cols, encoding='latin-1')
 
 rate_train = ratings_base.as_matrix()
 rate_test = ratings_test.as_matrix()
@@ -22,7 +23,7 @@ i_cols = ['movie id', 'movie title' ,'release date','video release date', 'IMDb 
  'Animation', 'Children\'s', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Fantasy',
  'Film-Noir', 'Horror', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western']
 
-items = pd.read_csv('/home/nguyentran25/PycharmProjects/recommend/Data/u.item', sep='|', names=i_cols,
+items = pd.read_csv('./Data/u.item', sep='|', names=i_cols,
  encoding='latin-1')
 # print items
 n_items = items.shape[0]
