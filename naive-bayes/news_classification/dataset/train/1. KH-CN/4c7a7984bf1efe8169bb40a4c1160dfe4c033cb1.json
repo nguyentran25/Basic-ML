@@ -1,0 +1,9 @@
+{
+    "code": "4c7a7984bf1efe8169bb40a4c1160dfe4c033cb1",
+    "title": "Tư duy thiết kế cho lập trình viên, cách thiết kế forms đẹp hơn",
+    "url": "http://techtalk.vn/tu-duy-thiet-ke-cho-lap-trinh-vien-cach-thiet-ke-forms-dep-hon.html",
+    "labels": "techtalk/Cong nghe",
+    "content": "Lập trình viên thường là những người không có sense tốt lắm về thiết kế. Chính vì vậy, Techtalk sẽ giới thiệu một số góc nhìn và kiến thức về lĩnh vực này để giúp cho chúng ta có thể nâng cao hơn về khả năng ứng dụng các khái niệm thiết kế vào sản phẩm! Hãy cùng xem nhé.Những lổi designer thường gặp và phương hướng khắc phụcTừ signup flow, a multi-view stepper, đến monotonous data entry interface, form là một trong những thành phần quan trọng nhất của thiết kế sản phẩm số. Bài viết này tập trung vào những nguyên tắc nên và không nên làm trong form design. Nên nhớ, đây chỉ là những điểm chung và luôn có ngoại lệ cho mọi quy luật.Hãy bỏ các trường không bắt buộc đi và tìm cách khác để thu thập dữ liệu. Các kiểu trắc nghiệm cũng là một cách hay với tỷ lệ phản hồi cao để thay thế câu hỏi. Hơn nữa, dữ liệu phân tích tự động và các kênh xã hội, UI chuyển đổi, SMS, email, voice, ORN, vị trí, vân tay,… đang dần trở thành kênh thống kê của thời hiện đại.Cuộc đời ngắn ngủi lắm. Chả ai muốn ngồi lỳ điền một cái form dài thật dài cả. Hãy thật gần gũi, vui nhộn, tiếp xúc mạnh mẽ. Hãy làm điều không ai ngờ đến. Vai trò của một designer là phải thể hiện thương hiệu của công ty theo cách gợi ra phản ứng cảm xúc nơi người dùng. Nếu thực hiện đúng cách, bạn sẽ có thể tăng tỷ lệ hoàn thành (vẫn nên đi theo các quy luật bên trên nhé).Techtalk via uxdesign ",
+    "image_url": "",
+    "date": "2016-12-12T12:00:47Z"
+}

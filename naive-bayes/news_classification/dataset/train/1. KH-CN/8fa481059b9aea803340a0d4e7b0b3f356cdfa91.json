@@ -1,0 +1,9 @@
+{
+    "code": "8fa481059b9aea803340a0d4e7b0b3f356cdfa91",
+    "title": "Đoạn video đặc biệt khiến cả thế giới cảm động",
+    "url": "http://vietbao.vn/Cong-nghe/Doan-video-dac-biet-khien-ca-the-gioi-cam-dong/590345819/217/",
+    "labels": "vietbao/Công Nghệ/Tin Tổng Hợp",
+    "content": "Những hình ảnh trong đoạn video được tổng hợp từ rất nhiều khoảnh khắc, những tình huống mà lòng tốt và sự chia sẻ khiến người xem thực sự cảm thấy ấm lòng.   console.log(\"run here - jadsVideo-vb-584e099fcaa0f - \",Date());    document.addEventListener(\"DOMContentLoaded\", function(){  console.log(\"ready - jadsVideo-vb-584e099fcaa0f -\",Date());  setTimeout(function(){  console.log(\"init video - jadsVideo-vb-584e099fcaa0f -\",Date()); $(\".jadsVideo-vb-584e099fcaa0f\").jadsVideo({ file: 'http://media73.cdn2.vietnamnet.vn/vod/vnn/quoc-te/2016/12/12/08/20161212082521-video-xucdong.mp4', poster: '', title: 'Đoạn video đặc biệt khiến cả thế giới cảm động' }); },500);  });  PlayH.N (tổng hợp)XEM THÊMPhát hiện sinh vật lạ như chim bơi dưới biển10 clip \"nóng\": Cứu bạn thoát chết kỳ lạ của linh dương đầu bòTiên tri đáng sợ về người ngoài hành tinh trên Trái đất của Vanga10 clip nóng: 6 phút rượt đuổi cướp nghẹt thở chưa từng có",
+    "image_url": "http://a9.vietbao.vn/images/vn999/22/2016/12/vietnam_20161212-doan-video-dac-biet-khien-ca-the-gioi-cam-dong-1.jpg",
+    "date": "2016-12-12T07:57:07Z"
+}

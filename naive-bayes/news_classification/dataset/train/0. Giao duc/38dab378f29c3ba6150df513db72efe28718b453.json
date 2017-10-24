@@ -1,0 +1,9 @@
+{
+    "code": "38dab378f29c3ba6150df513db72efe28718b453",
+    "title": "Học sinh, giáo viên vất vả thích ứng đổi mới thi cử",
+    "url": "http://vietbao.vn/Giao-duc/Hoc-sinh-giao-vien-vat-va-thich-ung-doi-moi-thi-cu/590345943/202/",
+    "labels": "vietbao/Giáo Dục/Tin Giáo Dục",
+    "content": " - Cả học sinh và giáo viên chỉ có 10 tháng để thích ứng với những đổi mới của kỳ thi THPT quốc gia 2017 sắp tới trong khi khối lượng công việc là rất nhiều.Trong chương trình Thời sự 19h tối 10/12, VTV phát phóng sự về những đổi mới của kỳ thi THPT quốc gia 2017 cũng như những thay đổi trong cách dạy và học của giáo viên, học sinh nhằm thích ứng với những đổi mới này.Phóng sự khẳng định, mặc dù những đổi mới của Bộ GD-ĐT là có lộ trình rõ ràng, song, trong thực tế, cả giáo viên và học sinh vẫn đối mặt với nhiều khó khăn trong việc dạy và học để chuẩn bị cho kỳ thi quan trọng của năm 2017.   console.log(\"run here - jadsVideo-vb-584f7d4fb82dd - \",Date());    document.addEventListener(\"DOMContentLoaded\", function(){  console.log(\"ready - jadsVideo-vb-584f7d4fb82dd -\",Date());  setTimeout(function(){  console.log(\"init video - jadsVideo-vb-584f7d4fb82dd -\",Date()); $(\".jadsVideo-vb-584f7d4fb82dd\").jadsVideo({ file: 'http://media73.cdn2.vietnamnet.vn/vod/vnn/thoi-su/2016/12/12/15/20161212152020-vtv-thi-thpt-quoc-gia.mp4', poster: '', title: 'Học sinh, giáo viên vất vả thích ứng đổi mới thi cử' }); },500);  }); PlayTheo VTV",
+    "image_url": "",
+    "date": "2016-12-12T15:53:00Z"
+}

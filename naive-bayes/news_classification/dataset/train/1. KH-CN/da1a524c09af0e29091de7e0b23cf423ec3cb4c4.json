@@ -1,0 +1,9 @@
+{
+    "code": "da1a524c09af0e29091de7e0b23cf423ec3cb4c4",
+    "title": "DotNetNuke User API webservice – thao tác với user thông qua API",
+    "url": "http://techtalk.vn/dotnetnuke-user-api-webservice-thao-tac-voi-user-thong-qua-api.html",
+    "labels": "techtalk/Cong nghe",
+    "content": "Hiện mình có quản lý một số hệ thống sử dụng DotNetNuke. Cái này mình code cũng lâu rồi (năm 2010 thì phải) hồi đó cũng lọ mọ trên mạng để tìm xem có giải pháp nào hỗ trợ cho việc thao tác với người dùng của dotnetnuke portal thông qua API hay không (Quản trị viên thao tác từ hệ thống Local). Sau khi tìm một hồi, thấy không được. Cuối cùng thì bỏ source DotNetNuke ra đọc và tự dựng lên cái webservice và một số hàm mong muốn. Share ra đây để bạn nào đang gặp phải vấn đề này đỡ mất thời gian:Bạn nào sử dụng nó cho portal online hoặc cần bảo mật API thì bổ sung thêm đoạn code check bảo mật  vào nhé để tránh việc truy cập trái phép can thiệp vào người dùng không mong muốn.Tạo người dùng mới trên DotNetNuke PortalLấy thông tin người dùngĐổi mật khẩu người dùng trên DotNetNuke portalĐặt lại mật khẩu người dùng trên DotNetNuke portalSource đầy đủ có thể download tại:  https://gist.github.com/xonv/8542cd2dae096f3c32abTechtalk via dicay",
+    "image_url": "",
+    "date": "2016-12-11T01:00:07Z"
+}

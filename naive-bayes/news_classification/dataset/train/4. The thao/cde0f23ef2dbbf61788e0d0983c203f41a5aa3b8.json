@@ -1,0 +1,9 @@
+{
+    "code": "cde0f23ef2dbbf61788e0d0983c203f41a5aa3b8",
+    "title": "Clip: Hoàng Xuân Vinh dùng một viên đạn bắn tắt ngọn nến",
+    "url": "http://vietbao.vn/The-thao/Clip-Hoang-Xuan-Vinh-dung-mot-vien-dan-ban-tat-ngon-nen/181577005/134/",
+    "labels": "vietbao/Thể Thao/Tin Thể Thao",
+    "content": "Mới đây, trên trang cá nhân của HLV Nguyễn Thị Nhung đã đăng tải clip biểu diễn bắn tắt ngọn nến từ cự ly 10m của Hoàng Xuân Vinh.   console.log(\"run here - jadsVideo-vb-584e39d2b9a0c - \",Date());    document.addEventListener(\"DOMContentLoaded\", function(){  console.log(\"ready - jadsVideo-vb-584e39d2b9a0c -\",Date());  setTimeout(function(){  console.log(\"init video - jadsVideo-vb-584e39d2b9a0c -\",Date()); $(\".jadsVideo-vb-584e39d2b9a0c\").jadsVideo({ file: 'http://streaming.vov.vn/03b7e12170e2e69192d3bdb50062f830/584f883a/videostore/Uploaded/yMG4g2DyiqELy8UZVeuKg/2016_12_12/20161212084608_hoang_xuan_vinh_WNDL.mp4', poster: '', title: 'Clip: Hoàng Xuân Vinh dùng một viên đạn bắn tắt ngọn nến' }); },500);  }); Trọng Phú/VOV.VN",
+    "image_url": "",
+    "date": "2016-12-12T11:24:06Z"
+}

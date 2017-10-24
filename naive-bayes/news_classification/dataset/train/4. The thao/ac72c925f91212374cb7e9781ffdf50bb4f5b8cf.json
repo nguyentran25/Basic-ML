@@ -1,0 +1,9 @@
+{
+    "code": "ac72c925f91212374cb7e9781ffdf50bb4f5b8cf",
+    "title": "Clip: Ronaldo nhận Quả bóng Vàng 2016",
+    "url": "http://vietbao.vn/The-thao/Clip-Ronaldo-nhan-Qua-bong-Vang-2016/181577228/134/",
+    "labels": "vietbao/Thể Thao/Tin Thể Thao",
+    "content": "Clip Ronaldo nhận danh hiệu Quả bóng vàng 2016 do France Football tổ chức bầu chọn.Sáng sớm nay (13/12), Ronaldo xuất sắc vượt qua Lionel Messi và Antoine Griezmann để giành danh hiệu Quả bóng Vàng 2016 do tạp chí France Football tổ chức. Đây là lần thứ 4 (tính cả Quả bóng Vàng FIFA) trong sự nghiệp, Ronaldo đoạt danh hiệu cá nhân cao quý này. Mời quý độc giả xem clip Ronaldo nhận Quả bóng Vàng 2016./.   console.log(\"run here - jadsVideo-vb-584f8a01e4227 - \",Date());    document.addEventListener(\"DOMContentLoaded\", function(){  console.log(\"ready - jadsVideo-vb-584f8a01e4227 -\",Date());  setTimeout(function(){  console.log(\"init video - jadsVideo-vb-584f8a01e4227 -\",Date()); $(\".jadsVideo-vb-584f8a01e4227\").jadsVideo({ file: 'http://streaming.vov.vn/ace844529662393c1301d314ad19401b/5850d464/videostore/Uploaded/xMWQRJDYkQLy8UZVeuKg/2016_12_13/Ronaldo_PTXO.mp4', poster: '', title: 'Clip: Ronaldo nhận Quả bóng Vàng 2016' }); },500);  }); Clip Ronaldo nhận Quả bóng Vàng 2016Chùm ảnh: Ronaldo bảnh bao trong ngày nhận Quả bóng Vàng 2016VOV.VN - Ronaldo ăn mặc bảnh nhận Quả bóng Vàng 2016 do tạp chí France Football tổ chức bầu chọn.Hoàng Yến/VOV.VN Clip France Football",
+    "image_url": "http://a9.vietbao.vn/images/vn999/181/2016/12/vietnam_20161213-clip-ronaldo-nhan-qua-bong-vang-2016-1.jpg",
+    "date": "2016-12-13T11:15:22Z"
+}

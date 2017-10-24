@@ -1,0 +1,9 @@
+{
+    "code": "59188b03d490e3eef675ec830f61d27d494c80d8",
+    "title": "Ôtô sang đường ẩu, tông văng người đi xe máy",
+    "url": "http://vietbao.vn/O-to-xe-may/Oto-sang-duong-au-tong-vang-nguoi-di-xe-may/590346054/350/",
+    "labels": "vietbao/Xe/Tổng Hợp",
+    "content": "Một chiếc ôtô quay đầu đã đâm mạnh vào người đi xe máy cùng chiều, khiến nạn nhân văng xuống đường. Vụ việc xảy ra vào chiều 11/12 trên đường Nguyễn Trãi (Hà Nội).   console.log(\"run here - jadsVideo-vb-584fa3c11652f - \",Date());    document.addEventListener(\"DOMContentLoaded\", function(){  console.log(\"ready - jadsVideo-vb-584fa3c11652f -\",Date());  setTimeout(function(){  console.log(\"init video - jadsVideo-vb-584fa3c11652f -\",Date()); $(\".jadsVideo-vb-584fa3c11652f\").jadsVideo({ file: 'http://media73.cdn2.vietnamnet.vn/vod/vnn/thoi-su/2016/12/13/08/20161213081339-oto-sang-duong-au-tong-vang-nguoi-di-xe-may-giai-tri.mp4', poster: '', title: 'Ôtô sang đường ẩu, tông văng người đi xe máy' }); },500);  }); Play",
+    "image_url": "",
+    "date": "2016-12-13T13:00:32Z"
+}

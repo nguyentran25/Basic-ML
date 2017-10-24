@@ -1,0 +1,9 @@
+{
+    "code": "89afa0d74c370fc3994ec74ae5a4fe46bb2b0e6e",
+    "title": "Clip: Chiêm ngưỡng đôi chân “ma thuật” của Ronaldo ở năm 2016",
+    "url": "http://vietbao.vn/The-thao/Clip-Chiem-nguong-doi-chan-ma-thuat-cua-Ronaldo-o-nam-2016/181577287/134/",
+    "labels": "vietbao/Thể Thao/Tin Thể Thao",
+    "content": "Xuất sắc khi đánh bại Messi và Griezmann, Ronaldo trở thành chủ nhân của danh hiệu Quả bóng vàng 2016.2016 là một năm thành công của Ronaldo khi siêu sao người Bồ Đào Nha giành chức vô địch Champions League và bước lên đỉnh vinh quang cao nhất tại EURO 2016.Nhắc tới Ronaldo, ngoài việc sở hữu những cú dứt điểm trái phá thì chân sút 31 tuổi còn có kỹ thuật thượng thừa khiến các hậu vệ phải ái ngại./.   console.log(\"run here - jadsVideo-vb-584fd1d5080df - \",Date());    document.addEventListener(\"DOMContentLoaded\", function(){  console.log(\"ready - jadsVideo-vb-584fd1d5080df -\",Date());  setTimeout(function(){  console.log(\"init video - jadsVideo-vb-584fd1d5080df -\",Date()); $(\".jadsVideo-vb-584fd1d5080df\").jadsVideo({ file: 'http://streaming.vov.vn/27c1039c2b66979f7dbc852fa971973c/58511d4a/videostore/Uploaded/xAJ1AQdLgNUnWqtGwtjoWg/2016_12_13/Cristiano_Ronaldo_2016_17_Ballon_D_or_Winner_Wonderful_Skills_Goals_CHOE.mp4', poster: '', title: 'Clip: Chiêm ngưỡng đôi chân “ma thuật” của Ronaldo ở năm 2016' }); },500);  }); Trường Giang/VOV.VN",
+    "image_url": "",
+    "date": "2016-12-13T16:18:37Z"
+}

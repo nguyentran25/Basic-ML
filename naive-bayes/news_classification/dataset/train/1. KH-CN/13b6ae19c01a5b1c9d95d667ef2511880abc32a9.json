@@ -1,0 +1,9 @@
+{
+    "code": "13b6ae19c01a5b1c9d95d667ef2511880abc32a9",
+    "title": "Cấu hình Xdebug cho Netbeans + PHP + Wamp",
+    "url": "http://techtalk.vn/cau-hinh-xdebug-cho-netbeans-php-wamp.html",
+    "labels": "techtalk/Cong nghe",
+    "content": "Lâu không đụng vào PHP, kết quả cũng search google tung tóe mới cấu hình xong con Wamp3 cho Netbeans có thể debug được.Sau khi cấu hình mới phát hiện ra, cũng chả có gì – đơn giản chỉ là mình ko biết :”>. Note ra đây cho ngài nào cũng bị gà như mình.Tiến hành kiểm tra tương tự với file php.ini trong thư mục php: \\\\wamp64\\bin\\php\\php5.6.16\\ph\nSau bước này ok rồi,Techtalk via dicay",
+    "image_url": "",
+    "date": "2016-12-11T08:00:04Z"
+}

@@ -1,0 +1,9 @@
+{
+    "code": "007a4ed6a28e32fbff0a9633c343bc9efae8ab54",
+    "title": "Điệu nhảy “nóng bỏng” của các hoạt náo viên NBA",
+    "url": "http://vietbao.vn/The-thao/Dieu-nhay-nong-bong-cua-cac-hoat-nao-vien-NBA/181576804/134/",
+    "labels": "vietbao/Thể Thao/Tin Thể Thao",
+    "content": "Dưới đây là điệu nhảy ấn tượng của các hoạt náo viên NBA trong trận đấu giữa đội Timberwolves và đội Warriors.   console.log(\"run here - jadsVideo-vb-584d124921768 - \",Date());    document.addEventListener(\"DOMContentLoaded\", function(){  console.log(\"ready - jadsVideo-vb-584d124921768 -\",Date());  setTimeout(function(){  console.log(\"init video - jadsVideo-vb-584d124921768 -\",Date()); $(\".jadsVideo-vb-584d124921768\").jadsVideo({ file: 'http://streaming.vov.vn/ff5f9a8189e7038452b806a737f411ef/584e60bd/videostore/Uploaded/yMG4g2DyiqELy8UZVeuKg/2016_12_11/Warriors_Dance_Team_Performance_Timberwolves_vs_Warriors_November_26_2016_2016_17_NBA_Season_ARJP.mp4', poster: '', title: 'Điệu nhảy “nóng bỏng” của các hoạt náo viên NBA' }); },500);  }); Trọng Phú/VOV.VN Clip: NBA",
+    "image_url": "",
+    "date": "2016-12-11T14:15:23Z"
+}

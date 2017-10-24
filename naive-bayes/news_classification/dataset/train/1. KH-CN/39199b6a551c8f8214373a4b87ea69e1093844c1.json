@@ -1,0 +1,9 @@
+{
+    "code": "39199b6a551c8f8214373a4b87ea69e1093844c1",
+    "title": "Adobe mời cụ bà 88 tuổi làm giám đốc",
+    "url": "http://vietbao.vn/Cong-nghe/Adobe-moi-cu-ba-88-tuoi-lam-giam-doc/442682541/217/",
+    "labels": "vietbao/Công Nghệ/Tin Tổng Hợp",
+    "content": "Dường như sự sáng tạo chưa bao giờ bị giới hạn bởi tuổi tác nhưng cũng không ai ngờ, một cụ bà sống đến tuổi 88 vẫn còn giữ niềm đam mê chụp ảnh và các phần mềm sáng tạo với hình ảnh.Sinh ra ở Kumamoto, cụ bà Kimiko Nishimoto là một người rất đam mê chụp ảnh. Bà đã chụp khá nhiều những tấm ảnh về bản thân và chỉnh sửa chúng trên những phần mềm sáng tạo kỹ thuật số trong vài năm gần đây.Theo Rocketnews24, sự nhiệt huyết và các tác phẩm nổi bật của bà dần khiến cộng đồng mạng dậy sóng. Và đó cũng trở thành duyên cớ được Adobe chú ý tới.Sau đó, hãng Adobe đã bất ngờ thuê bà trở thành Giám đốc nghệ thuật tạo hình thiệp chúc tết Nengajo năm mới 2017 dành cho thị trường Nhật Bản.Nengajo hay còn gọi là thiệp chúc tết theo phong tục Nhật Bản là một món quà vô cùng quý giá mà mọi người dân Nhật đều mong muốn được nhận vào mùng Một Tết.Adobe cũng lựa chọn tác phẩm của bà góp mặt trong một chiến dịch quảng bá mới liên quan đến Adobe Creative Cloud.Bạn đọc muốn tìm hiểu chi tiết hơn về quá trình cụ bà Nishimoto thực hiện các tác phẩm nghệ thuật của mình có thể theo dõi đoạn video dưới đây:    console.log(\"run here - jadsVideo-vb-584fcb45d1e6d - \",Date());    document.addEventListener(\"DOMContentLoaded\", function(){  console.log(\"ready - jadsVideo-vb-584fcb45d1e6d -\",Date());  setTimeout(function(){  console.log(\"init video - jadsVideo-vb-584fcb45d1e6d -\",Date()); $(\".jadsVideo-vb-584fcb45d1e6d\").jadsVideo({ file: 'http://video.giaoducthoidai.vn/704fa698d798083c61d95e66811c2029/58511820/2016_12_13/cuong/2.mp4', poster: '', title: 'Adobe mời cụ bà 88 tuổi làm giám đốc' }); },500);  }); TheoVnReview",
+    "image_url": "",
+    "date": "2016-12-13T15:53:31Z"
+}
