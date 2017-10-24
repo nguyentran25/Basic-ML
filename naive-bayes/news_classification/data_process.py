@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# create vietnamese dictionary and text 's features vector (bag of words) 
 
 import json
-import dictparser as dp
+import math
 import os
+import dictparser as dp
 import numpy as np
 from underthesea import word_sent
 from scipy.sparse import coo_matrix
-import math
 
 
 class NewsData:
@@ -64,6 +65,7 @@ class NewsData:
 		return (idf, features)
 
 	def create_features_and_labels(self, path, label_id):
+		# create text 's feature vector (bag of words) and text 'label
 		features = []
 		labels = []
 		text_cnt = 0
@@ -92,6 +94,7 @@ class NewsData:
 		return (features, labels)
 
 	def create_matrix_bag_of_words(self, path, nwords, label):
+		#convert vectors to matrix, using coo_matrix to represent sparse matrix
 		features = []
 		labels = []
 		for folder in path:

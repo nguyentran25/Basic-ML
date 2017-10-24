@@ -1,18 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from collections import OrderedDict
 import data_process
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score
 import numpy as np
-from collections import OrderedDict
 
 class NewsClassification:
 	def __init__(self):
-		self.database = data_process.NewsData()
-		self.clf = MultinomialNB()
-		self.accuracy = OrderedDict()
-		self.recall_and_precision = OrderedDict()
+		self.database = data_process.NewsData() #store vietnamese dict and text 's features
+		self.clf = MultinomialNB() #naive bayes model
+		self.recall_and_precision = OrderedDict() #list of recall and precision score
 		self.vietnamese_dict = {}
 		self.size_dict = 0
 
@@ -22,7 +21,7 @@ class NewsClassification:
 		if char == "1":
 			self.vietnamese_dict = self.database.create_new_dict(path_train)
 			self.vietnamese_dict = self.database.create_new_dict(path_test_all)
-			self.database.write_dict_to_file(newsdict)
+			self.database.write_dict_to_file(self.vietnamese_dict)
 		if char == "2":
 			self.vietnamese_dict = self.database.load_dict_from_file('./dataset/news_dict.txt')
 		self.size_dict = self.database.news_dict.get_size_dict()
@@ -34,18 +33,6 @@ class NewsClassification:
 
 	def pred(self, test_features):
 		return self.clf.predict(test_features)
-
-	# def calc_accuracy(self, path, label):
-	# 	(test_features, test_label) = self.database.create_matrix_bag_of_words(path, self.size_dict, label)
-	# 	y_pred = self.pred(test_features)
-	# 	acc_score = accuracy_score(test_label, y_pred)*100
-	# 	acc_score = str(round(acc_score,2)) + '%'
-	# 	if len(path) > 1:
-	# 		key = "All class" + ", Test size = "  + str(len(test_label))
-	# 		self.accuracy[key] = acc_score
-	# 	else:
-	# 		key = "Class " + str(label) + ' ' + str(path) + ", Test size = "  + str(len(test_label))
-	# 		self.accuracy[key] = acc_score
 
 	def create_true_false_matrix(self, path, true_false_matrix, label):
 		(test_features, test_label) = self.database.create_matrix_bag_of_words(path, self.size_dict, label)
@@ -77,7 +64,7 @@ class NewsClassification:
 			self.recall_and_precision[key] = (recall[i], precision[i])
 
 
-#test
+#test Vietnam News classification
 
 model = NewsClassification()
 path_train = ['./dataset/train/0. Giao duc/', './dataset/train/1. KH-CN/', \
@@ -86,28 +73,22 @@ path_train = ['./dataset/train/0. Giao duc/', './dataset/train/1. KH-CN/', \
 	 			'./dataset/train/6. Van hoa - Giai tri','./dataset/train/7. Xa hoi', \
 				'./dataset/train/8. Oto - Xe may']
 
-path_test_all = ['./dataset/test/0. Giao duc/', './dataset/test/1. KH-CN/', \
+path_test_class = ['./dataset/test/0. Giao duc/', './dataset/test/1. KH-CN/', \
 		 		'./dataset/test/2. Phap luat/', './dataset/test/3. Suc khoe', './dataset/test/4. The thao', \
-		 		'./dataset/test/5. Kinh te', './dataset/test/6. Van hoa - Giai tri','./dataset/test/7. Xa hoi', \
-		 		'./dataset/test/8. Oto - Xe may']
+		 		'./dataset/test/5. Kinh te', './dataset/test/6. Van hoa - Giai tri', './dataset/test/7. Xa hoi', \
+				'./dataset/test/8. Oto - Xe may']
 
 path_test_class = [['./dataset/test/0. Giao duc/'], ['./dataset/test/1. KH-CN/'], \
 		 		['./dataset/test/2. Phap luat/'], ['./dataset/test/3. Suc khoe'], ['./dataset/test/4. The thao'], \
 		 		['./dataset/test/5. Kinh te'], ['./dataset/test/6. Van hoa - Giai tri'], ['./dataset/test/7. Xa hoi'], \
 				['./dataset/test/8. Oto - Xe may']]
 
+
 model.input_data(path_train, path_test_all)
 training_size = model.train(path_train)
-# print "Training size", training_size
-# print "-----------------------------------------------------------"
-# print "Accuracy:"
-# for i  in xrange(len(path_test_class)):
-# 	model.calc_accuracy(path_test_class[i], label = i)
-# model.calc_accuracy(path_test_all, label = 0)
-# for key in model.accuracy:
-# 	print key, ":", model.accuracy[key]
+
 print "-----------------------------------------------------------"
-print "Recall and Precision:"
+print "Calculate Recall and Precision:"
 num_class = len(path_train)
 model.calc_recall_and_precision(path_test_class, num_class)
 for key in model.recall_and_precision:
