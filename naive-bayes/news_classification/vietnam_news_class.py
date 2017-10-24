@@ -35,6 +35,7 @@ class NewsClassification:
 		return self.clf.predict(test_features)
 
 	def create_true_false_matrix(self, path, true_false_matrix, label):
+		#true_false_matrix: matrix n*n, with two dimensions: actual and predicted, n = number of classes
 		(test_features, test_label) = self.database.create_matrix_bag_of_words(path, self.size_dict, label)
 		y_pred = self.pred(test_features)
 		y_pred = np.array(y_pred)
@@ -46,6 +47,7 @@ class NewsClassification:
 				true_false_matrix[y_pred[i]][label] += 1
 
 	def calc_recall_and_precision(self, path, num_class):
+		#calculate recall and precision score for each class
 		recall = []
 		precision = []
 		true_false_matrix = np.zeros((num_class,num_class))
@@ -73,7 +75,7 @@ path_train = ['./dataset/train/0. Giao duc/', './dataset/train/1. KH-CN/', \
 	 			'./dataset/train/6. Van hoa - Giai tri','./dataset/train/7. Xa hoi', \
 				'./dataset/train/8. Oto - Xe may']
 
-path_test_class = ['./dataset/test/0. Giao duc/', './dataset/test/1. KH-CN/', \
+path_test_all = ['./dataset/test/0. Giao duc/', './dataset/test/1. KH-CN/', \
 		 		'./dataset/test/2. Phap luat/', './dataset/test/3. Suc khoe', './dataset/test/4. The thao', \
 		 		'./dataset/test/5. Kinh te', './dataset/test/6. Van hoa - Giai tri', './dataset/test/7. Xa hoi', \
 				'./dataset/test/8. Oto - Xe may']
