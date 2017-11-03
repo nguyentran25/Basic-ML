@@ -1,8 +1,10 @@
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics import jaccard_similarity_score
 from scipy import sparse
 from sklearn.model_selection import train_test_split
+import os
 
 class CF(object):
     """docstring for CF"""
@@ -51,8 +53,10 @@ class CF(object):
         self.Ybar = sparse.coo_matrix((self.Ybar_data[:, 2],
             (self.Ybar_data[:, 1], self.Ybar_data[:, 0])), (self.n_items, self.n_users))
         self.Ybar = self.Ybar.tocsr()
+        return self.Ybar
 
     def similarity(self):
+        # print self.Ybar
         self.S = self.dist_func(self.Ybar.T, self.Ybar.T)
 
     def refresh(self):
@@ -60,7 +64,9 @@ class CF(object):
         Normalize data and calculate similarity matrix again (after
         some few ratings added)
         """
+        print "start"
         self.normalize_Y()
+        print "end"
         self.similarity() 
         
     def fit(self):
@@ -113,53 +119,138 @@ class CF(object):
         for i in xrange(self.n_items):
             if i not in items_rated_by_u:
                 rating = self.__pred(u, i)
-                if rating > 0: 
+                if rating > 4.8: 
                     recommended_items.append(i)
         
         return recommended_items 
 
+    # def print_recommendation(self):
+    #     """
+    #     print all items which should be recommended for each user 
+    #     """
+    #     print 'Recommendation: '
+    #     for u in xrange(self.n_users):
+    #         recommended_items = self.recommend(u)
+    #         if self.uuCF:
+    #             print '    Recommend item(s):', recommended_items, 'to user', u
+    #         else: 
+    #             print '    Recommend item', u, 'to user(s) : ', recommended_items
     def print_recommendation(self):
         """
         print all items which should be recommended for each user 
         """
         print 'Recommendation: '
-        for u in xrange(self.n_users):
-            recommended_items = self.recommend(u)
-            if self.uuCF:
-                print '    Recommend item(s):', recommended_items, 'to user', u
-            else: 
-                print '    Recommend item', u, 'to user(s) : ', recommended_items
+        u = raw_input()
+        u = int(u)
+        recommended_items = self.recommend(u)
+        if self.uuCF:
+            print '    Recommend item(s):', recommended_items, 'to user', u
+        else: 
+            print '    Recommend item', u, 'to user(s) : ', recommended_items
 
 # Data Movies
-r_cols = ['user_id', 'movie_id', 'rating', 'unix_timestamp']
-ratings_base = pd.read_csv('./Data/ub.base', sep='\t', names=r_cols, encoding='latin-1')
-ratings_test = pd.read_csv('./Data/ub.test', sep='\t', names=r_cols, encoding='latin-1')
-rate_train = ratings_base.as_matrix()
-rate_test = ratings_test.as_matrix()
+# r_cols = ['user_id', 'movie_id', 'rating', 'unix_timestamp']
+# ratings_base = pd.read_csv('./Data/ub.base', sep='\t', names=r_cols, encoding='latin-1')
+# ratings_test = pd.read_csv('./Data/ub.test', sep='\t', names=r_cols, encoding='latin-1')
+# rate_train = ratings_base.as_matrix()
+# rate_test = ratings_test.as_matrix()
+# print rate_train
+
 
 # # Data Books
-# r_cols = ['books_id', 'users_id', 'rating']
-# ratings_base = pd.read_csv('./Data/ratings.csv', sep=',', names=r_cols, encoding='latin-1')
-# ratings_base = ratings_base.as_matrix()
+r_cols = ['books_id', 'users_id', 'rating']
+ratings_base = pd.read_csv('./Data/ratings.csv', sep=',', names=r_cols, encoding='latin-1')
+ratings_base = ratings_base.as_matrix()
+# print ratings_base[0][1]
 # ratings_base = ratings_base[:,[1,0,2]]; #swap books_id and users_id
-# rate_train, rate_test = train_test_split(ratings_base, test_size = 0.2, random_state = None) #split ratings base, rate_train/rate_test = 80/20
+ratings_base = np.array(ratings_base)
+print ratings_base
+rate_train, rate_test = train_test_split(ratings_base, test_size = 0.2, random_state = None) #split ratings base, rate_train/rate_test = 80/20
+# ratings_base, tmp = train_test_split(ratings_base, test_size = 0.9)
+# rate_train, rate_test = train_test_split(ratings_base, test_size = 0.1)
+# print rate_train
+# print rate_test
 
-# indices start from 0
-rate_train[:, :2] -= 1
-rate_test[:, :2] -= 1
+size = ratings_base.shape[0]
+user = 1
+train = []
+tmp = []
+print "Tao data"
+for i in xrange(size):
+    if ratings_base[i][0] == user:
+        if ratings_base[i][2] > 4:
+            tmp.append(ratings_base[i][1])
 
-#users-users
-rs = CF(rate_train, k = 30, uuCF = 1)
-rs.fit( )
+    else:
+        user += 1
+        train.append(tmp)
+        tmp = []
+        if ratings_base[i][2] > 4:
+            tmp.append(ratings_base[i][1])
 
-n_tests = rate_test.shape[0]
-SE = 0 # squared error
-for n in xrange(n_tests):
-    pred = rs.pred(rate_test[n, 0], rate_test[n, 1], normalized = 0)
-    SE += (pred - rate_test[n, 2])**2 
+train.append(tmp)
+print "da tao xong"
+print len(train)
 
-RMSE = np.sqrt(SE/n_tests)
-print 'User-user CF, RMSE =', RMSE
+# ============================================
+# print train[0]
+# # indices start from 0
+# rate_train[:, :2] -= 1
+# rate_test[:, :2] -= 1
+# # print rate_train
+# #users-users
+# rs = CF(rate_train, k = 30, uuCF = 1)
+# # rs.fit( )
+# print "Chuan hoa du lieu"
+# a = rs.normalize_Y()
+# print "Da chuan hoa xong"
+# # a = a.tolist()
+# a = a.T
+# # print a.shape[]
+# print a
+# content = ""
+# for i in range (0, 9848):
+#     tmp = []
+#     for j in range (0,53423):
+#         if a[i, j] >=5:
+#             tmp.append(j)
+#     tmp = str(tmp)
+#     content += '[' + '"' + 'U' + str(i+1) + '"' + ',' + ' ' + tmp + ']' + '\n'
+#     print "user", i+1, "done"
+# with open('input.json', 'w') as f:
+#     f.write(content)
+# ======================================================
+
+user = 1
+content = ""
+for i in train:
+    content += '[' + '"' + 'U' + str(user) + '"' + ',' + ' ' + str(i) + ']' + '\n'
+    print "item", user, "done"
+    user += 1
+print len(train)
+with open('input.json', 'w') as f:
+    f.write(content)
+
+
+
+
+# # cnt = 0
+# # for i in range(0,943):
+# #     print a[i, 0]
+# # print a[942,1681]
+# # print a[1681, 942]
+# print "build similarity table: done"
+# n_tests = rate_test.shape[0]
+# SE = 0 # squared error
+# for n in xrange(n_tests):
+#     pred = rs.pred(rate_test[n, 0], rate_test[n, 1], normalized = 0)
+#     SE += (pred - rate_test[n, 2])**2 
+
+# RMSE = np.sqrt(SE/n_tests)
+# print 'User-user CF, RMSE =', RMSE
+
+# while True:
+#     rs.print_recommendation()
 
 #items-items
 # rs = CF(rate_train, k = 30, uuCF = 0)

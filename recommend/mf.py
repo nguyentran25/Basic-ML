@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy import sparse 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection 
+import train_test_split
 
 class MF(object):
     """docstring for CF"""
@@ -193,7 +194,8 @@ class MF(object):
         predicted_ratings= []
         for i in xrange(self.n_items):
             if i not in items_rated_by_u:
-                predicted_ratings.append((i, y_pred[i]))
+                if y_pred[i] > 4:
+                    predicted_ratings.append((y_pred[i], i))
         
         return predicted_ratings
 
@@ -208,33 +210,42 @@ class MF(object):
         return RMSE
 
 # Data Movies
-# r_cols = ['user_id', 'movie_id', 'rating', 'unix_timestamp']
-# ratings_base = pd.read_csv('./Data/ub.base', sep='\t', names=r_cols, encoding='latin-1')
-# ratings_test = pd.read_csv('./Data/ub.test', sep='\t', names=r_cols, encoding='latin-1')
-# rate_train = ratings_base.as_matrix()
-# rate_test = ratings_test.as_matrix()
+r_cols = ['user_id', 'movie_id', 'rating', 'unix_timestamp']
+ratings_base = pd.read_csv('./Data/ub.base', sep='\t', names=r_cols, encoding='latin-1')
+ratings_test = pd.read_csv('./Data/ub.test', sep='\t', names=r_cols, encoding='latin-1')
+rate_train = ratings_base.as_matrix()
+rate_test = ratings_test.as_matrix()
 # print rate_test
 # print rate_train
 #Data Books
-r_cols = ['books_id', 'users_id', 'rating']
-ratings_base = pd.read_csv('./Data/ratings.csv', sep=',', names=r_cols, encoding='latin-1')
-ratings_base = ratings_base.as_matrix()
-ratings_base = ratings_base[:,[1,0,2]]; #swap books_id and users_id
-rate_train, rate_test = train_test_split(ratings_base, test_size = 0.2, random_state = None) #split ratings base, rate_train/rate_test = 80/20
+# r_cols = ['books_id', 'users_id', 'rating']
+# ratings_base = pd.read_csv('./Data/ratings.csv', sep=',', names=r_cols, encoding='latin-1')
+# ratings_base = ratings_base.as_matrix()
+# ratings_base = ratings_base[:,[1,0,2]]; #swap books_id and users_id
+# rate_train, rate_test = train_test_split(ratings_base, test_size = 0.2, random_state = None) #split ratings base, rate_train/rate_test = 80/20
 
-print rate_test
-print rate_train
+# print rate_test
+# print rate_train
 
 # indices start from 0
 rate_train[:, :2] -= 1
 rate_test[:, :2] -= 1
 
-print rate_train.shape[0]
+# print rate_train.shape[0]
 
-# rs = MF(rate_train, K = 10, lam = .1, print_every = 10, 
-#     learning_rate = 0.75, max_iter = 100, user_based = 1)
-# rs.fit()
-# # evaluate on test data
-# RMSE = rs.evaluate_RMSE(rate_test)
-# print '\nUser-based MF, RMSE =', RMSE
+rs = MF(rate_train, K = 10, lam = .1, print_every = 10, 
+    learning_rate = 0.75, max_iter = 100, user_based = 1)
+rs.fit()
+# evaluate on test data
+RMSE = rs.evaluate_RMSE(rate_test)
+print '\nUser-based MF, RMSE =', RMSE
 
+# def getkey(item):
+#     return item[1]
+
+while True:
+    user_id = raw_input()
+    user_id = int(user_id)
+    predict_for_user = rs.pred_for_user(user_id)
+    sorted(predict_for_user, key=lambda item: float(item[0]))
+    print predict_for_user
