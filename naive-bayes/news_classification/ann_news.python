@@ -1,0 +1,127 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from collections import OrderedDict
+import data_process
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import accuracy_score
+import numpy as np
+import math
+
+class NewsClassification:
+	def __init__(self):
+		self.database = data_process.NewsData() #store vietnamese dict and text 's features
+		self.clf = MultinomialNB() #naive bayes model
+		self.recall_and_precision = OrderedDict() #list of recall and precision score
+		self.vietnamese_dict = {}
+		self.size_dict = 0
+
+	def input_data(self, path_train, path_test_all):
+		print "Nhap 1 de tao tu dien moi, 2 de load tu dien tu file"
+		char = raw_input()
+		if char == "1":
+			self.vietnamese_dict = self.database.create_new_dict(path_train)
+			self.vietnamese_dict = self.database.create_new_dict(path_test_all)
+			self.database.write_dict_to_file(self.vietnamese_dict)
+		if char == "2":
+			self.vietnamese_dict = self.database.load_dict_from_file('./dataset/news_dict.txt')
+		self.size_dict = self.database.news_dict.get_size_dict()
+
+	def train(self, path_train):
+		(train_features, train_label) = self.database.create_matrix_bag_of_words(path_train, self.size_dict, 0)
+		self.clf.fit(train_features, train_label)
+		return train_features.shape[0]
+
+	def pred(self, test_features):
+		return self.clf.predict(test_features	)
+
+
+
+#test Vietnam News classification
+
+model = NewsClassification()
+path_train = ['./dataset/train/0. Giao duc/', './dataset/train/1. KH-CN/', \
+				'./dataset/train/2. Phap luat/', './dataset/train/3. Suc khoe', \
+	 			'./dataset/train/4. The thao', './dataset/train/5. Kinh te', \
+	 			'./dataset/train/6. Van hoa - Giai tri','./dataset/train/7. Xa hoi', \
+				'./dataset/train/8. Oto - Xe may']
+
+path_test_all = ['./dataset/test/0. Giao duc/', './dataset/test/1. KH-CN/', \
+		 		'./dataset/test/2. Phap luat/', './dataset/test/3. Suc khoe', './dataset/test/4. The thao', \
+		 		'./dataset/test/5. Kinh te', './dataset/test/6. Van hoa - Giai tri', './dataset/test/7. Xa hoi', \
+				'./dataset/test/8. Oto - Xe may']
+
+path_test_class = [['./dataset/test/0. Giao duc/'], ['./dataset/test/1. KH-CN/'], \
+		 		['./dataset/test/2. Phap luat/'], ['./dataset/test/3. Suc khoe'], ['./dataset/test/4. The thao'], \
+		 		['./dataset/test/5. Kinh te'], ['./dataset/test/6. Van hoa - Giai tri'], ['./dataset/test/7. Xa hoi'], \
+				['./dataset/test/8. Oto - Xe may']]
+
+
+model.input_data(path_train, path_test_all)
+
+C = 9
+(train_features, train_label) = model.database.create_matrix_bag_of_words(path_train, model.size_dict, 0)
+d0 = model.size_dict
+print d0
+for i in range(0,5):
+	(test_features, test_label) = model.database.create_matrix_bag_of_words(path_test_class[i], model.size_dict, i)
+
+
+def softmax(V):
+    e_V = np.exp(V - np.max(V, axis = 0, keepdims = True))
+    Z = e_V / e_V.sum(axis = 0)
+    return Z
+
+## One-hot coding
+from scipy import sparse
+def convert_labels(y, C = 9):
+    Y = sparse.coo_matrix((np.ones_like(y),
+        (y, np.arange(len(y)))), shape = (C, len(y))).toarray()
+    return Y
+
+# cost or loss function
+def cost(Y, Yhat):
+    return -np.sum(Y*np.log(Yhat))/Y.shape[1]
+
+X = train_features.T
+y = train_label
+
+d1 = h = 1000 # size of hidden layer
+d2 = C = 9
+# initialize parameters randomly
+W1 = 0.01*np.random.randn(d0, d1)
+b1 = np.zeros((d1, 1))
+W2 = 0.01*np.random.randn(d1, d2)
+b2 = np.zeros((d2, 1))
+
+Y = convert_labels(y, C)
+N = X.shape[1]
+eta = 1 # learning rate
+print "Bat dau cho ma tran X vao de hoc, test thu 10 vong lap"
+for i in xrange(10):
+    ## Feedforward
+    Z1 = np.dot(W1.T, X) + b1
+    A1 = np.maximum(Z1, 0)
+    Z2 = np.dot(W2.T, A1) + b2
+    Yhat = softmax(Z2)
+    # print loss after each 1000 iterations
+    if i %1000 == 0:
+        # compute the loss: average cross-entropy loss
+        loss = cost(Y, Yhat)
+        print "iter %d, loss: %f" %(i, loss)
+
+    # backpropagation
+    E2 = (Yhat - Y )/N
+    dW2 = np.dot(A1, E2.T)
+    db2 = np.sum(E2, axis = 1, keepdims = True)
+    E1 = np.dot(W2, E2)
+    E1[Z1 <= 0] = 0 # gradient of ReLU
+    dW1 = np.dot(X, E1.T)
+    db1 = np.sum(E1, axis = 1, keepdims = True)
+
+    # Gradient Descent update
+    W1 += -eta*dW1
+    b1 += -eta*db1
+    W2 += -eta*dW2
+    b2 += -eta*db2
+
